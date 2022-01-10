@@ -1,0 +1,62 @@
+
+<mat-card>
+  <mat-card-header>
+    <mat-card-title> <span style="color:#3f51b5"> Tipo Cambio</span>
+      <button mat-icon-button color="primary" (click)="openDialog()">  <mat-icon>person_add</mat-icon></button></mat-card-title>
+  </mat-card-header>
+  </mat-card>
+
+
+
+<div mat-table class="table">
+  <ngx-datatable
+    ngx-resize-watcher
+    class="material"
+              [rows]="modelo.lista"
+              [columnMode]="'flex'" 
+              [footerHeight]="50"
+              [sortType]="'single'"
+              [rowHeight]="40"
+              [headerHeight]="50"
+              [externalPaging]="false"
+              [externalSorting]="false"  
+              [scrollbarH]="false"
+              [messages]="mensajes" 
+  >
+    <ngx-datatable-column
+      name="Tipo Cambio (DE)"
+      [flexGrow]="1"
+      [sortable]="true"
+      prop="currencyNameFrom"
+    >
+    </ngx-datatable-column>
+    <ngx-datatable-column
+      name="Tipo Cambio (A)"
+      [flexGrow]="1"
+      [sortable]="true"
+      prop="currencyNameTo"
+    >
+    </ngx-datatable-column>
+    <ngx-datatable-column
+    name="Tipo Cambio"
+    [flexGrow]="1"
+    [sortable]="true"
+    prop="exchangeRate"
+  >
+  </ngx-datatable-column> 
+     
+    <ngx-datatable-column
+      class="text-center"
+      name="Opciones"
+      [flexGrow]="0.5"
+      [sortable]="false"
+    >
+      <ng-template let-row="row" ngx-datatable-cell-template>
+        <button  mat-icon-button color="basic" (click)="update(row)">
+           <mat-icon>edit</mat-icon></button>  
+      </ng-template>
+    </ngx-datatable-column>
+
+
+  </ngx-datatable>
+</div>

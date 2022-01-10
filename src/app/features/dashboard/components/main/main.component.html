@@ -1,0 +1,84 @@
+<div class="form-register-exchanges">
+    <div class="add-title">
+      <h2 class="primary">Calcular Tipo de Cambio</h2>
+    </div>
+    <div>
+      <form novalidate  [formGroup]="exchange"   (ngSubmit)="formChanged()"   (change)="formChanged()">
+        <mat-grid-list cols="3" [cols]="breakpoint" rowHeight="80px"     >
+          
+          <mat-grid-tile>
+            <div class="text-inside">
+              <mat-form-field class="example-full-width">
+                <input matInput placeholder="Tipo Cambio (DE)"  formControlName="currencyFrom" required>
+                <mat-error *ngIf="exchange.get('currencyFrom').hasError('required')">
+                  Tipo Cambio (DE), es requerido
+                 </mat-error>
+                 <mat-error *ngIf="exchange.get('currencyFrom').hasError('pattern') && !exchange.get('currencyFrom').hasError('required')">
+                  Por favor ingrese un Tipo Cambio (DE) válido.
+                </mat-error>
+              </mat-form-field>
+            </div>
+          </mat-grid-tile>
+          <mat-grid-tile>
+            <div class="text-inside">
+              <mat-form-field class="example-full-width">
+                <input matInput placeholder="Tipo Cambio (A)"  formControlName="currencyTo" required>
+                <mat-error *ngIf="exchange.get('currencyTo').hasError('required')">
+                  Tipo Cambio (A), es requerido
+                 </mat-error>
+                 <mat-error *ngIf="exchange.get('currencyTo').hasError('pattern') && !exchange.get('currencyTo').hasError('required')">
+                  Por favor ingrese Tipo Cambio (A) válidos.
+                </mat-error>
+              </mat-form-field>
+            </div>
+          </mat-grid-tile>
+          <mat-grid-tile>
+            <div class="text-inside">
+              <mat-form-field  >
+                <input matInput   placeholder="Monto" maxlength="6" formControlName="amount" required>
+                <mat-error *ngIf="exchange.get('amount').hasError('required')">
+                  Monto es requerido
+                 </mat-error>
+                 <mat-error *ngIf="exchange.get('amount').hasError('pattern') && !exchange.get('amount').hasError('required')">
+                  Por favor ingrese Monto válido.
+                </mat-error>
+              </mat-form-field>
+            </div>
+          </mat-grid-tile>
+           
+        </mat-grid-list>
+ 
+        <div mat-dialog-actions>
+          <button mat-raised-button type="submit" color="primary"   (click)="calculate()" class="Update-btn"  >Calcular</button> 
+        </div>
+<br>
+        
+        <div class="add-title">
+      <h2 class="primary">Resultado de tipo de cambio</h2>
+      <hr>
+    </div>
+        <mat-grid-list cols="3" [cols]="breakpoint" rowHeight="80px"     >
+          
+          <mat-grid-tile>
+            <div class="text-inside">
+              <mat-form-field class="example-full-width">
+                <input matInput placeholder="Tipo Cambio"  formControlName="exchangeRate"  >
+                
+              </mat-form-field>
+            </div>
+          </mat-grid-tile>
+          <mat-grid-tile>
+            <div class="text-inside">
+              <mat-form-field  >
+                <input matInput   placeholder="Monto Cálculado" maxlength="6" formControlName="calculatedAmount"  >
+                 
+              </mat-form-field>
+            </div>
+          </mat-grid-tile>
+           
+        </mat-grid-list>
+        <p>{{response | json}}</p>
+
+      </form>
+    </div>
+  </div>

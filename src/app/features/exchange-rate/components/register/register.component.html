@@ -1,0 +1,58 @@
+<div>
+    <div class="add-title">
+      <h2 class="primary">{{title}}</h2>
+    </div>
+    <div>
+      <form novalidate class="form-register-exchange"  (ngSubmit)="formChanged()" [formGroup]="exchange" (change)="formChanged()">
+        <mat-grid-list cols="2" [cols]="breakpoint" rowHeight="80px"    (window:resize)="onResize($event)">
+          
+          <mat-grid-tile>
+            <div class="text-inside">
+              <mat-form-field class="example-full-width">
+                <input matInput placeholder="Tipo Cambio (DE)"  formControlName="currencyFrom" required>
+                <mat-error *ngIf="exchange.get('currencyFrom').hasError('required')">
+                  Tipo Cambio (DE), es requerido
+                 </mat-error>
+                 <mat-error *ngIf="exchange.get('currencyFrom').hasError('pattern') && !exchange.get('currencyFrom').hasError('required')">
+                  Por favor ingrese un Tipo Cambio (DE) válido.
+                </mat-error>
+              </mat-form-field>
+            </div>
+          </mat-grid-tile>
+          <mat-grid-tile>
+            <div class="text-inside">
+              <mat-form-field class="example-full-width">
+                <input matInput placeholder="Tipo Cambio (A)"  formControlName="currencyTo" required>
+                <mat-error *ngIf="exchange.get('currencyTo').hasError('required')">
+                  Tipo Cambio (A), es requerido
+                 </mat-error>
+                 <mat-error *ngIf="exchange.get('currencyTo').hasError('pattern') && !exchange.get('currencyTo').hasError('required')">
+                  Por favor ingrese Tipo Cambio (A) válidos.
+                </mat-error>
+              </mat-form-field>
+            </div>
+          </mat-grid-tile>
+          <mat-grid-tile>
+            <div class="text-inside">
+              <mat-form-field  >
+                <input matInput   placeholder="Tipo de Cambio" maxlength="6" formControlName="exchangeRate" required>
+                <mat-error *ngIf="exchange.get('exchangeRate').hasError('required')">
+                  Tipo Cambio es requerido
+                 </mat-error>
+                 <mat-error *ngIf="exchange.get('exchangeRate').hasError('pattern') && !exchange.get('exchangeRate').hasError('required')">
+                  Por favor ingrese tipo de cambio válido.
+                </mat-error>
+              </mat-form-field>
+            </div>
+          </mat-grid-tile>
+            
+        </mat-grid-list>
+
+        <div mat-dialog-actions>
+          <button mat-raised-button type="submit" color="primary"   (click)="save()" class="Update-btn"  >Save</button>
+          <button mat-raised-button type="button" class="Discard-btn" (click)="close()">Cancel</button>
+        </div>
+
+      </form>
+    </div>
+  </div>

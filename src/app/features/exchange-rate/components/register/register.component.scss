@@ -1,0 +1,32 @@
+
+.form-register-exchange{
+.filepicker{
+  display: none;
+}
+.custom-image{
+  max-width: 240px;
+  max-height: 200px;
+}
+
+.custom-figure >::ng-deep .mat-figure{
+  display: block !important;
+  margin-block-start: 1em !important;
+  margin-block-end: 1em!important;
+  margin-inline-start: 60px!important;
+  margin-inline-end: 60px!important;
+}
+
+.custom-grid-title{
+  height:142px !important;
+}
+.custom-grid-title-margin{
+  margin-top: -50px !important;
+}
+
+.custom-grid-title-margin2{
+  margin-top: -15px !important;
+}
+.mat-dialog-actions{
+  justify-content: center !important;
+}
+}

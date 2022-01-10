@@ -1,0 +1,41 @@
+
+body {
+  margin: 0;
+  padding: 0;
+}
+.custom-fa-user {
+  color: #23bdf5;
+  font-size: 6em;
+}
+
+.mat-flat-button.mat-primary{
+  background-color: #fcb148 !important;
+  min-width: 230px !important;
+  min-height: 40px !important;
+}
+.custom-grid-tile {
+  height: 30px !important;
+}
+.custom-grid-tile-margin {
+  margin-top: -50px !important;
+}
+.btn-login{
+  color:#1a73e8!important;
+}
+.form-element{
+  margin-top: 100px;
+}
+.example-form{
+::ng-deep .mat-form-field-infix{
+  min-width: 220px !important;
+}
+}
+.custom-form-field-width{
+  max-width: 245px !important;
+  ::ng-deep .mat-form-field-suffix{
+    left: -30px;
+  }
+}
+
+
+
